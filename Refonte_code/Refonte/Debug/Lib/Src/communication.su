@@ -1,0 +1,10 @@
+../Lib/Src/communication.c:31:6:uart_init	16	static
+../Lib/Src/communication.c:42:6:reception	16	static
+../Lib/Src/communication.c:50:6:parser	24	static
+../Lib/Src/communication.c:240:6:msg_manager	16	static
+../Lib/Src/communication.c:259:6:check_msg_identifier	4	static
+../Lib/Src/communication.c:264:6:robot_uid	4	static
+../Lib/Src/communication.c:268:9:calc_checksum_rx	16	static
+../Lib/Src/communication.c:278:9:calc_checksum_uart5	24	static
+../Lib/Src/communication.c:286:9:check_checksum_rx	16	static
+../Lib/Src/communication.c:290:6:choice_color	4	static

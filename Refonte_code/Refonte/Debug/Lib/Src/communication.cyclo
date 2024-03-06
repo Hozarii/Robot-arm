@@ -1,0 +1,10 @@
+../Lib/Src/communication.c:31:6:uart_init	1
+../Lib/Src/communication.c:42:6:reception	1
+../Lib/Src/communication.c:50:6:parser	46
+../Lib/Src/communication.c:240:6:msg_manager	3
+../Lib/Src/communication.c:259:6:check_msg_identifier	3
+../Lib/Src/communication.c:264:6:robot_uid	1
+../Lib/Src/communication.c:268:9:calc_checksum_rx	1
+../Lib/Src/communication.c:278:9:calc_checksum_uart5	2
+../Lib/Src/communication.c:286:9:check_checksum_rx	1
+../Lib/Src/communication.c:290:6:choice_color	1
