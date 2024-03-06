@@ -1,0 +1,11 @@
+red
+blue
+green
+rx_buffer_uart2
+rx_buffer_uart5
+tx_buffer_uart5
+uart5_irq_is_captured
+tx_buffer_uart2
+&huart5
+msg_size
+msg_size_reception
