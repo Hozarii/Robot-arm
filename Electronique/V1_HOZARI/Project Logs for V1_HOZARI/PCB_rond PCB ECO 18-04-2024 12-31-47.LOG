@@ -1,0 +1,3 @@
+Change Component Description : Designator=Q2 Old Description=Transistor NPN 45V 0.5A hfe160 SOT23 New Description=Transistor NPN 45V 0.5A hfe160 SOT23 | ON Semiconductor BC817-25LT1G
+Added Component: Designator=*(NUCLEO_L432KC)
+Added Member To Class: ClassName=Schematic_MASTER Member=Component * NUCLEO_L432KC
