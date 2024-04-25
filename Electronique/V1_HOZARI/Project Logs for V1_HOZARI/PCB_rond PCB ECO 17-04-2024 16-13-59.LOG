@@ -1,5 +1,0 @@
-Change Component Comment : Designator=C1 Old Comment=100nF New Comment=C_0603
-Added Component: Designator=J3(XT30UPB-M)
-Added Component: Designator=J7(XT30UPB-M)
-Added Member To Class: ClassName=Schematic_MASTER Member=Component J3 XT30UPB_M
-Added Member To Class: ClassName=Schematic_MASTER Member=Component J7 XT30UPB_M
