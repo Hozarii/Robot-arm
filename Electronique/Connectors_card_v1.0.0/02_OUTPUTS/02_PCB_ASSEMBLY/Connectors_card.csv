@@ -1,0 +1,14 @@
+"Id";"Designator";"Footprint";"Quantity";"Designation";"Supplier and ref";
+1;"J3,J4";"J_22-27-2031";2;"~";;;
+2;"J5";"J_22-27-2041";1;"J_22_27_2041";;;
+3;"Q1";"SOT-23";1;"BC817";;;
+4;"F1";"L_1206_3216Metric";1;"Fuse";;;
+5;"J6";"J_430450812";1;"J_430450812";;;
+6;"U1";"MODULE_NUCLEO-L432KC";1;"~";;;
+7;"J1,J2";"J_XT30PB-F";2;"J_XT30UPB-F";;;
+8;"J7,J8";"PinSocket_1x15_P2.54mm_Vertical";2;"Conn_01x15_Socket";;;
+9;"Q2";"TO_252_3_TabPin3_STripFET";1;"Q_STD65N55F3";;;
+10;"R2";"R_0603_1608Metric";1;"R_0603_1k_1%_0.1W";;;
+11;"R1";"R_0603_1608Metric";1;"R_0603_1M_1%_0.1W";;;
+12;"C1";"C_0603_1608Metric";1;"C_0603_100nF_100V_X7R_10%";;;
+13;"R3";"R_0603_1608Metric";1;"R_0603_10k_1%_0.1W";;;
