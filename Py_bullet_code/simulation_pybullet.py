@@ -14,6 +14,8 @@ ref_shoulder = 30*DEG2RAD
 init_position = (0,90,90,0,0,0,0,0,0,0,0)
 reset_position = (0,0,0,0,0,0,0,0,0,0,0)
 
+
+
 max_base_joint_angle = 100
 max_shoulder_joint_angle = 150
 max_elbow_joint_angle = 150
@@ -44,17 +46,20 @@ class State(Enum):
     CHOOSE_MODE = 3
     INIT_DK = 4 
     INIT_IK = 5
-    MODE_DK = 6
-    MODE_IK = 7
-    RESULT = 8
-    INIT_EMMERGENCY = 9
-    EMMERGENCY = 10
-    FINISH = 11
+    INIT_DEMO = 6
+    MODE_DK = 7
+    MODE_IK = 8
+    MODE_DEMO = 9
+    RESULT = 10
+    INIT_EMMERGENCY = 11
+    EMMERGENCY = 12
+    FINISH = 13
 
 class SimulationPyBullet:
     def __init__(self):
         self.physics_client = p.connect(p.GUI)
         self.flag_axe = 0
+        self.position_demo = 0
 
         p.resetDebugVisualizerCamera(1.0, 90, -40, (0, 0, 0))
 
@@ -130,6 +135,7 @@ class SimulationPyBullet:
             p.removeAllUserParameters()
             self.mode_dk_button = p.addUserDebugParameter(" Mode : Angle  ", 1, 0, 0)
             self.mode_ik_button = p.addUserDebugParameter(" Mode : Position ", 1, 0, 0)
+            self.mode_demo_button = p.addUserDebugParameter(" Mode : Demonstration ", 1, 0, 0)
             self._state = State.CHOOSE_MODE
 
     def init_dk(self) :
@@ -140,7 +146,7 @@ class SimulationPyBullet:
         self.elbow_slider = p.addUserDebugParameter("Elbow Joint", min_elbow_joint_angle, max_elbow_joint_angle, -self.elbow_joint_angle*RAD2DEG + ref_elbow*RAD2DEG)
         self.rot_slider = p.addUserDebugParameter("Rot Joint", min_rot_joint_angle, max_rot_joint_angle, self.rot_joint_angle*RAD2DEG)
         self.tilt_slider = p.addUserDebugParameter("Tilt Joint", min_tilt_joint_angle, max_tilt_joint_angle, self.tilt_joint_angle*RAD2DEG)
-        self.speed_slider = p.addUserDebugParameter(" Speed ", 0, 1, 0)
+        self.speed_slider = p.addUserDebugParameter(" Speed ", 0.1, 1, 0)
         self.apply_button = p.addUserDebugParameter(" Apply ", 1, 0, 0)
         self.init_button = p.addUserDebugParameter(" Init ", 1, 0, 0)
         self.reset_button = p.addUserDebugParameter(" Reset ", 1, 0, 0)
@@ -159,6 +165,13 @@ class SimulationPyBullet:
         self.apply_button = p.addUserDebugParameter(" Apply ", 1, 0, 0)
         self.init_button = p.addUserDebugParameter(" Init ", 1, 0, 0)
         self.reset_button = p.addUserDebugParameter(" Reset ", 1, 0, 0)
+        self.mode_dk_button = p.addUserDebugParameter(" Mode : Angle ", 1, 0, 0)
+        self.stop_button = p.addUserDebugParameter(" STOP ", 1, 0, 0)
+
+    def init_demo(self) :
+        p.removeAllUserParameters()
+        self.position_demo = 0
+        self.mode_ik_button = p.addUserDebugParameter(" Mode : Position ", 1, 0, 0)
         self.mode_dk_button = p.addUserDebugParameter(" Mode : Angle ", 1, 0, 0)
         self.stop_button = p.addUserDebugParameter(" STOP ", 1, 0, 0)
 
@@ -354,6 +367,70 @@ class SimulationPyBullet:
             self._state=State.INIT_EMMERGENCY
             time.sleep(0.2)
 
+    def mode_demo(self) : 
+        
+        if self.position_demo == 0 : 
+            self.base_joint_angle = 90.0*DEG2RAD
+            self.shoulder_joint_angle = -90.0*DEG2RAD + ref_shoulder
+            self.elbow_joint_angle = -90.0*DEG2RAD + ref_elbow
+            self.rot_joint_angle = 90.0*DEG2RAD 
+            self.tilt_joint_angle = 90.0*DEG2RAD
+        elif self.position_demo == 1000 :
+            self.base_joint_angle = 60.0*DEG2RAD
+            self.shoulder_joint_angle = -130.0*DEG2RAD + ref_shoulder
+            self.elbow_joint_angle = -90.0*DEG2RAD + ref_elbow
+            self.rot_joint_angle = 45.0*DEG2RAD 
+            self.tilt_joint_angle = 130.0*DEG2RAD
+        elif self.position_demo == 2000 :
+            self.base_joint_angle = 0.0*DEG2RAD
+            self.shoulder_joint_angle = -90.0*DEG2RAD + ref_shoulder
+            self.elbow_joint_angle = -90.0*DEG2RAD + ref_elbow
+            self.rot_joint_angle = 0.0*DEG2RAD 
+            self.tilt_joint_angle = 0.0*DEG2RAD
+        elif self.position_demo == 3000 :
+            self.base_joint_angle = -60.0*DEG2RAD
+            self.shoulder_joint_angle = -130.0*DEG2RAD + ref_shoulder
+            self.elbow_joint_angle = -90.0*DEG2RAD + ref_elbow
+            self.rot_joint_angle = -45.0*DEG2RAD 
+            self.tilt_joint_angle = 130.0*DEG2RAD
+        elif self.position_demo == 4000 :
+            self.base_joint_angle = 0.0*DEG2RAD
+            self.shoulder_joint_angle = -0.0*DEG2RAD + ref_shoulder
+            self.elbow_joint_angle = -0.0*DEG2RAD + ref_elbow
+            self.rot_joint_angle = 0.0*DEG2RAD 
+            self.tilt_joint_angle = 0.0*DEG2RAD
+            self.position_demo=0
+
+
+
+        self.position_demo = self.position_demo + 1
+
+        self.constrain_axe()
+
+        self.result(0)
+        self.last_base_joint_angle = self.base_joint_angle
+        self.last_shoulder_joint_angle = self.shoulder_joint_angle
+        self.last_elbow_joint_angle = self.elbow_joint_angle
+        self.last_rot_joint_angle = self.rot_joint_angle
+        self.last_tilt_joint_angle = self.tilt_joint_angle
+
+        # self.aplly_value()
+
+        if keyboard.is_pressed('1') or p.readUserDebugParameter(self.mode_dk_button) == 1 :
+            print("start init ............................")
+            self._state=State.INIT_DK
+            time.sleep(0.2)
+
+        if keyboard.is_pressed('2') or p.readUserDebugParameter(self.mode_ik_button) == 1 :
+            print("start init ............................")
+            self._state=State.INIT_IK
+            time.sleep(0.2)
+
+        if p.readUserDebugParameter(self.stop_button) == 1 :
+            print("start emergency ............................")
+            self._state=State.INIT_EMMERGENCY
+            time.sleep(0.2)
+
     def run_simulation(self):
         """Callback function triggered every 100 milliseconds to execute to robot program"""
         # print(self._state)
@@ -372,12 +449,17 @@ class SimulationPyBullet:
                 self._state = State.INIT_DK 
             elif p.readUserDebugParameter(self.mode_ik_button) == 1 or keyboard.is_pressed('2') :
                 self._state = State.INIT_IK
+            elif p.readUserDebugParameter(self.mode_demo_button) == 1 or keyboard.is_pressed('3') :
+                self._state = State.INIT_DEMO
         elif self._state == State.INIT_DK: 
             self.init_dk()
             self._state = State.MODE_DK
         elif self._state == State.INIT_IK:
             self.init_ik()
             self._state = State.MODE_IK
+        elif self._state == State.INIT_DEMO:
+            self.init_demo()
+            self._state = State.MODE_DEMO
         elif self._state == State.MODE_DK: 
             self.mode_dk()
             self.draw_axes_all()  
@@ -385,6 +467,9 @@ class SimulationPyBullet:
         elif self._state ==  State.MODE_IK:
             self.mode_ik() 
             self.draw_axes_all()  
+            self.move_joint() 
+        elif self._state ==  State.MODE_DEMO:
+            self.mode_demo()  
             self.move_joint() 
         elif self._state == State.RESULT:
             self._state = State.GO_HOME 
