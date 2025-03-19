@@ -1,0 +1,944 @@
+17:51:41 **** Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/UGUI/ugui_sim_x11.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/UGUI/ugui_sim_x11.d" -MT"Lib/UGUI/ugui_sim_x11.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/UGUI/ugui_sim_x11.o"
+arm-none-eabi-gcc "../Lib/Src/lcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/lcd.d" -MT"Lib/Src/lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/lcd.o"
+../Lib/UGUI/ugui_sim_x11.c:22:5: error: unknown type name 'Display'
+   22 |     Display *dis;
+      |     ^~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:23:5: error: unknown type name 'Window'
+   23 |     Window win;
+      |     ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c:24:5: error: unknown type name 'GC'
+   24 |     GC gc;
+      |     ^~
+../Lib/UGUI/ugui_sim_x11.c:25:5: error: unknown type name 'Visual'
+   25 |     Visual *visual;
+      |     ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c: In function 'handler':
+../Lib/UGUI/ugui_sim_x11.c:48:10: warning: implicit declaration of function 'backtrace' [-Wimplicit-function-declaration]
+   48 |   size = backtrace(array, 10);
+      |          ^~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:52:3: warning: implicit declaration of function 'backtrace_symbols_fd' [-Wimplicit-function-declaration]
+   52 |   backtrace_symbols_fd(array, size, STDERR_FILENO);
+      |   ^~~~~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c: In function 'x11_setup':
+../Lib/UGUI/ugui_sim_x11.c:104:19: warning: implicit declaration of function 'XOpenDisplay' [-Wimplicit-function-declaration]
+  104 |     handle->dis = XOpenDisplay((char *)0);
+      |                   ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:104:17: warning: assignment to 'int *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  104 |     handle->dis = XOpenDisplay((char *)0);
+      |                 ^
+../Lib/UGUI/ugui_sim_x11.c:105:22: warning: implicit declaration of function 'DefaultScreen' [-Wimplicit-function-declaration]
+  105 |     handle->screen = DefaultScreen(handle->dis);
+      |                      ^~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:106:13: warning: implicit declaration of function 'BlackPixel' [-Wimplicit-function-declaration]
+  106 |     black = BlackPixel(handle->dis, handle->screen),
+      |             ^~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:107:13: warning: implicit declaration of function 'WhitePixel' [-Wimplicit-function-declaration]
+  107 |     white = WhitePixel(handle->dis, handle->screen);
+      |             ^~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:108:19: warning: implicit declaration of function 'XCreateSimpleWindow' [-Wimplicit-function-declaration]
+  108 |     handle->win = XCreateSimpleWindow(handle->dis,
+      |                   ^~~~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:109:35: warning: implicit declaration of function 'DefaultRootWindow' [-Wimplicit-function-declaration]
+  109 |                                   DefaultRootWindow(handle->dis),
+      |                                   ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:117:5: warning: implicit declaration of function 'XSetStandardProperties' [-Wimplicit-function-declaration]
+  117 |     XSetStandardProperties(handle->dis, handle->win, "uGUI Window",
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:118:34: error: 'None' undeclared (first use in this function)
+  118 |                          "uGUI", None, NULL, 0, NULL);
+      |                                  ^~~~
+../Lib/UGUI/ugui_sim_x11.c:118:34: note: each undeclared identifier is reported only once for each function it appears in
+../Lib/UGUI/ugui_sim_x11.c:119:5: warning: implicit declaration of function 'XSelectInput' [-Wimplicit-function-declaration]
+  119 |     XSelectInput(handle->dis, handle->win,
+      |     ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:120:16: error: 'ExposureMask' undeclared (first use in this function)
+  120 |                ExposureMask|ButtonPressMask|
+      |                ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:120:29: error: 'ButtonPressMask' undeclared (first use in this function)
+  120 |                ExposureMask|ButtonPressMask|
+      |                             ^~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:121:16: error: 'ButtonReleaseMask' undeclared (first use in this function)
+  121 |                ButtonReleaseMask|KeyPressMask|Button1MotionMask);
+      |                ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:121:34: error: 'KeyPressMask' undeclared (first use in this function)
+  121 |                ButtonReleaseMask|KeyPressMask|Button1MotionMask);
+      |                                  ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:121:47: error: 'Button1MotionMask' undeclared (first use in this function)
+  121 |                ButtonReleaseMask|KeyPressMask|Button1MotionMask);
+      |                                               ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:122:18: warning: implicit declaration of function 'XCreateGC' [-Wimplicit-function-declaration]
+  122 |     handle->gc = XCreateGC(handle->dis, handle->win, 0,0);
+      |                  ^~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:123:5: warning: implicit declaration of function 'XSetBackground' [-Wimplicit-function-declaration]
+  123 |     XSetBackground(handle->dis, handle->gc, white);
+      |     ^~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:124:5: warning: implicit declaration of function 'XSetForeground' [-Wimplicit-function-declaration]
+  124 |     XSetForeground(handle->dis, handle->gc, black);
+      |     ^~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:125:5: warning: implicit declaration of function 'XClearWindow' [-Wimplicit-function-declaration]
+  125 |     XClearWindow(handle->dis, handle->win);
+      |     ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:126:5: warning: implicit declaration of function 'XMapRaised' [-Wimplicit-function-declaration]
+  126 |     XMapRaised(handle->dis, handle->win);
+      |     ^~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:127:22: warning: implicit declaration of function 'DefaultVisual' [-Wimplicit-function-declaration]
+  127 |     handle->visual = DefaultVisual(handle->dis, 0);
+      |                      ^~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:127:20: warning: assignment to 'int *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  127 |     handle->visual = DefaultVisual(handle->dis, 0);
+      |                    ^
+../Lib/UGUI/ugui_sim_x11.c: In function 'x11_process':
+../Lib/UGUI/ugui_sim_x11.c:137:5: error: unknown type name 'XEvent'
+  137 |     XEvent event;
+      |     ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c:141:12: warning: implicit declaration of function 'XCheckMaskEvent' [-Wimplicit-function-declaration]
+  141 |     while (XCheckMaskEvent(handle->dis,
+      |            ^~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:142:9: error: 'ButtonPressMask' undeclared (first use in this function)
+  142 |         ButtonPressMask | ButtonReleaseMask | Button1MotionMask | PointerMotionMask, &event) == true)
+      |         ^~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:142:27: error: 'ButtonReleaseMask' undeclared (first use in this function)
+  142 |         ButtonPressMask | ButtonReleaseMask | Button1MotionMask | PointerMotionMask, &event) == true)
+      |                           ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:142:47: error: 'Button1MotionMask' undeclared (first use in this function)
+  142 |         ButtonPressMask | ButtonReleaseMask | Button1MotionMask | PointerMotionMask, &event) == true)
+      |                                               ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:142:67: error: 'PointerMotionMask' undeclared (first use in this function)
+  142 |         ButtonPressMask | ButtonReleaseMask | Button1MotionMask | PointerMotionMask, &event) == true)
+      |                                                                   ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:146:22: error: request for member 'type' in something not a structure or union
+  146 |         switch (event.type)
+      |                      ^
+../Lib/UGUI/ugui_sim_x11.c:148:18: error: 'ButtonPress' undeclared (first use in this function)
+  148 |             case ButtonPress:
+      |                  ^~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:150:25: error: request for member 'xbutton' in something not a structure or union
+  150 |                 if(event.xbutton.button != 1)
+      |                         ^
+../Lib/UGUI/ugui_sim_x11.c:153:38: error: request for member 'xbutton' in something not a structure or union
+  153 |                 UG_TouchUpdate((event.xbutton.x - simCfg->screenMargin) / simCfg->screenMultiplier, (event.xbutton.y - simCfg->screenMargin) / simCfg->screenMultiplier, TOUCH_STATE_PRESSED);
+      |                                      ^
+../Lib/UGUI/ugui_sim_x11.c:153:107: error: request for member 'xbutton' in something not a structure or union
+  153 |                 UG_TouchUpdate((event.xbutton.x - simCfg->screenMargin) / simCfg->screenMultiplier, (event.xbutton.y - simCfg->screenMargin) / simCfg->screenMultiplier, TOUCH_STATE_PRESSED);
+      |                                                                                                           ^
+../Lib/UGUI/ugui_sim_x11.c:156:18: error: 'ButtonRelease' undeclared (first use in this function)
+  156 |             case ButtonRelease:
+      |                  ^~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:158:25: error: request for member 'xbutton' in something not a structure or union
+  158 |                 if(event.xbutton.button != 1)
+      |                         ^
+../Lib/UGUI/ugui_sim_x11.c:164:18: error: 'MotionNotify' undeclared (first use in this function)
+  164 |             case MotionNotify:
+      |                  ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:165:41: error: request for member 'xmotion' in something not a structure or union
+  165 |                 if(mouse_down && ( event.xmotion.state & Button1Mask ))
+      |                                         ^
+../Lib/UGUI/ugui_sim_x11.c:165:58: error: 'Button1Mask' undeclared (first use in this function)
+  165 |                 if(mouse_down && ( event.xmotion.state & Button1Mask ))
+      |                                                          ^~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:167:42: error: request for member 'xmotion' in something not a structure or union
+  167 |                     UG_TouchUpdate((event.xmotion.x - simCfg->screenMargin) / simCfg->screenMultiplier, (event.xmotion.y - simCfg->screenMargin) / simCfg->screenMultiplier, TOUCH_STATE_PRESSED);
+      |                                          ^
+../Lib/UGUI/ugui_sim_x11.c:167:111: error: request for member 'xmotion' in something not a structure or union
+  167 |                     UG_TouchUpdate((event.xmotion.x - simCfg->screenMargin) / simCfg->screenMultiplier, (event.xmotion.y - simCfg->screenMargin) / simCfg->screenMultiplier, TOUCH_STATE_PRESSED);
+      |                                                                                                               ^
+../Lib/UGUI/ugui_sim_x11.c:175:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  175 |         memcpy(ximage, handle->imgBuffer, BUFFER_SIZE);
+      |         ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c:16:1: note: include '<string.h>' or provide a declaration of 'memcpy'
+   15 | #include "ugui_sim.h"
+  +++ |+#include <string.h>
+   16 | 
+../Lib/UGUI/ugui_sim_x11.c:175:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+  175 |         memcpy(ximage, handle->imgBuffer, BUFFER_SIZE);
+      |         ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c:175:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Lib/UGUI/ugui_sim_x11.c:176:9: error: unknown type name 'XImage'
+  176 |         XImage *img = XCreateImage(handle->dis,
+      |         ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c:176:23: warning: implicit declaration of function 'XCreateImage' [-Wimplicit-function-declaration]
+  176 |         XImage *img = XCreateImage(handle->dis,
+      |                       ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:179:36: error: 'ZPixmap' undeclared (first use in this function)
+  179 |                                    ZPixmap,
+      |                                    ^~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:186:9: warning: implicit declaration of function 'XPutImage' [-Wimplicit-function-declaration]
+  186 |         XPutImage(handle->dis,
+      |         ^~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:196:9: warning: implicit declaration of function 'XDestroyImage' [-Wimplicit-function-declaration]
+  196 |         XDestroyImage(img);
+      |         ^~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:197:9: warning: implicit declaration of function 'XFlush'; did you mean 'fflush'? [-Wimplicit-function-declaration]
+  197 |         XFlush(handle->dis);
+      |         ^~~~~~
+      |         fflush
+make: *** [Lib/UGUI/subdir.mk:40: Lib/UGUI/ugui_sim_x11.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Lib/Src/lcd.c: In function 'setSPI_Size':
+../Lib/Src/lcd.c:106:35: error: 'SPI_CR1_DFF' undeclared (first use in this function); did you mean 'SPI_CR1_BR'?
+  106 |       LCD_HANDLE.Instance->CR1 != SPI_CR1_DFF;
+      |                                   ^~~~~~~~~~~
+      |                                   SPI_CR1_BR
+../Lib/Src/lcd.c:106:35: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Lib/Src/subdir.mk:28: Lib/Src/lcd.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:40:51 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/UGUI/ugui_sim_x11.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/UGUI/ugui_sim_x11.d" -MT"Lib/UGUI/ugui_sim_x11.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/UGUI/ugui_sim_x11.o"
+arm-none-eabi-gcc "../Lib/Src/lcd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/lcd.d" -MT"Lib/Src/lcd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/lcd.o"
+../Lib/UGUI/ugui_sim_x11.c:22:5: error: unknown type name 'Display'
+   22 |     Display *dis;
+      |     ^~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:23:5: error: unknown type name 'Window'
+   23 |     Window win;
+      |     ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c:24:5: error: unknown type name 'GC'
+   24 |     GC gc;
+      |     ^~
+../Lib/UGUI/ugui_sim_x11.c:25:5: error: unknown type name 'Visual'
+   25 |     Visual *visual;
+      |     ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c: In function 'handler':
+../Lib/UGUI/ugui_sim_x11.c:48:10: warning: implicit declaration of function 'backtrace' [-Wimplicit-function-declaration]
+   48 |   size = backtrace(array, 10);
+      |          ^~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:52:3: warning: implicit declaration of function 'backtrace_symbols_fd' [-Wimplicit-function-declaration]
+   52 |   backtrace_symbols_fd(array, size, STDERR_FILENO);
+      |   ^~~~~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c: In function 'x11_setup':
+../Lib/UGUI/ugui_sim_x11.c:104:19: warning: implicit declaration of function 'XOpenDisplay' [-Wimplicit-function-declaration]
+  104 |     handle->dis = XOpenDisplay((char *)0);
+      |                   ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:104:17: warning: assignment to 'int *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  104 |     handle->dis = XOpenDisplay((char *)0);
+      |                 ^
+../Lib/UGUI/ugui_sim_x11.c:105:22: warning: implicit declaration of function 'DefaultScreen' [-Wimplicit-function-declaration]
+  105 |     handle->screen = DefaultScreen(handle->dis);
+      |                      ^~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:106:13: warning: implicit declaration of function 'BlackPixel' [-Wimplicit-function-declaration]
+  106 |     black = BlackPixel(handle->dis, handle->screen),
+      |             ^~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:107:13: warning: implicit declaration of function 'WhitePixel' [-Wimplicit-function-declaration]
+  107 |     white = WhitePixel(handle->dis, handle->screen);
+      |             ^~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:108:19: warning: implicit declaration of function 'XCreateSimpleWindow' [-Wimplicit-function-declaration]
+  108 |     handle->win = XCreateSimpleWindow(handle->dis,
+      |                   ^~~~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:109:35: warning: implicit declaration of function 'DefaultRootWindow' [-Wimplicit-function-declaration]
+  109 |                                   DefaultRootWindow(handle->dis),
+      |                                   ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:117:5: warning: implicit declaration of function 'XSetStandardProperties' [-Wimplicit-function-declaration]
+  117 |     XSetStandardProperties(handle->dis, handle->win, "uGUI Window",
+      |     ^~~~~~~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:118:34: error: 'None' undeclared (first use in this function)
+  118 |                          "uGUI", None, NULL, 0, NULL);
+      |                                  ^~~~
+../Lib/UGUI/ugui_sim_x11.c:118:34: note: each undeclared identifier is reported only once for each function it appears in
+../Lib/UGUI/ugui_sim_x11.c:119:5: warning: implicit declaration of function 'XSelectInput' [-Wimplicit-function-declaration]
+  119 |     XSelectInput(handle->dis, handle->win,
+      |     ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:120:16: error: 'ExposureMask' undeclared (first use in this function)
+  120 |                ExposureMask|ButtonPressMask|
+      |                ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:120:29: error: 'ButtonPressMask' undeclared (first use in this function)
+  120 |                ExposureMask|ButtonPressMask|
+      |                             ^~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:121:16: error: 'ButtonReleaseMask' undeclared (first use in this function)
+  121 |                ButtonReleaseMask|KeyPressMask|Button1MotionMask);
+      |                ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:121:34: error: 'KeyPressMask' undeclared (first use in this function)
+  121 |                ButtonReleaseMask|KeyPressMask|Button1MotionMask);
+      |                                  ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:121:47: error: 'Button1MotionMask' undeclared (first use in this function)
+  121 |                ButtonReleaseMask|KeyPressMask|Button1MotionMask);
+      |                                               ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:122:18: warning: implicit declaration of function 'XCreateGC' [-Wimplicit-function-declaration]
+  122 |     handle->gc = XCreateGC(handle->dis, handle->win, 0,0);
+      |                  ^~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:123:5: warning: implicit declaration of function 'XSetBackground' [-Wimplicit-function-declaration]
+  123 |     XSetBackground(handle->dis, handle->gc, white);
+      |     ^~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:124:5: warning: implicit declaration of function 'XSetForeground' [-Wimplicit-function-declaration]
+  124 |     XSetForeground(handle->dis, handle->gc, black);
+      |     ^~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:125:5: warning: implicit declaration of function 'XClearWindow' [-Wimplicit-function-declaration]
+  125 |     XClearWindow(handle->dis, handle->win);
+      |     ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:126:5: warning: implicit declaration of function 'XMapRaised' [-Wimplicit-function-declaration]
+  126 |     XMapRaised(handle->dis, handle->win);
+      |     ^~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:127:22: warning: implicit declaration of function 'DefaultVisual' [-Wimplicit-function-declaration]
+  127 |     handle->visual = DefaultVisual(handle->dis, 0);
+      |                      ^~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:127:20: warning: assignment to 'int *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  127 |     handle->visual = DefaultVisual(handle->dis, 0);
+      |                    ^
+../Lib/UGUI/ugui_sim_x11.c: In function 'x11_process':
+../Lib/UGUI/ugui_sim_x11.c:137:5: error: unknown type name 'XEvent'
+  137 |     XEvent event;
+      |     ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c:141:12: warning: implicit declaration of function 'XCheckMaskEvent' [-Wimplicit-function-declaration]
+  141 |     while (XCheckMaskEvent(handle->dis,
+      |            ^~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:142:9: error: 'ButtonPressMask' undeclared (first use in this function)
+  142 |         ButtonPressMask | ButtonReleaseMask | Button1MotionMask | PointerMotionMask, &event) == true)
+      |         ^~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:142:27: error: 'ButtonReleaseMask' undeclared (first use in this function)
+  142 |         ButtonPressMask | ButtonReleaseMask | Button1MotionMask | PointerMotionMask, &event) == true)
+      |                           ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:142:47: error: 'Button1MotionMask' undeclared (first use in this function)
+  142 |         ButtonPressMask | ButtonReleaseMask | Button1MotionMask | PointerMotionMask, &event) == true)
+      |                                               ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:142:67: error: 'PointerMotionMask' undeclared (first use in this function)
+  142 |         ButtonPressMask | ButtonReleaseMask | Button1MotionMask | PointerMotionMask, &event) == true)
+      |                                                                   ^~~~~~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:146:22: error: request for member 'type' in something not a structure or union
+  146 |         switch (event.type)
+      |                      ^
+../Lib/UGUI/ugui_sim_x11.c:148:18: error: 'ButtonPress' undeclared (first use in this function)
+  148 |             case ButtonPress:
+      |                  ^~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:150:25: error: request for member 'xbutton' in something not a structure or union
+  150 |                 if(event.xbutton.button != 1)
+      |                         ^
+../Lib/UGUI/ugui_sim_x11.c:153:38: error: request for member 'xbutton' in something not a structure or union
+  153 |                 UG_TouchUpdate((event.xbutton.x - simCfg->screenMargin) / simCfg->screenMultiplier, (event.xbutton.y - simCfg->screenMargin) / simCfg->screenMultiplier, TOUCH_STATE_PRESSED);
+      |                                      ^
+../Lib/UGUI/ugui_sim_x11.c:153:107: error: request for member 'xbutton' in something not a structure or union
+  153 |                 UG_TouchUpdate((event.xbutton.x - simCfg->screenMargin) / simCfg->screenMultiplier, (event.xbutton.y - simCfg->screenMargin) / simCfg->screenMultiplier, TOUCH_STATE_PRESSED);
+      |                                                                                                           ^
+../Lib/UGUI/ugui_sim_x11.c:156:18: error: 'ButtonRelease' undeclared (first use in this function)
+  156 |             case ButtonRelease:
+      |                  ^~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:158:25: error: request for member 'xbutton' in something not a structure or union
+  158 |                 if(event.xbutton.button != 1)
+      |                         ^
+../Lib/UGUI/ugui_sim_x11.c:164:18: error: 'MotionNotify' undeclared (first use in this function)
+  164 |             case MotionNotify:
+      |                  ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:165:41: error: request for member 'xmotion' in something not a structure or union
+  165 |                 if(mouse_down && ( event.xmotion.state & Button1Mask ))
+      |                                         ^
+../Lib/UGUI/ugui_sim_x11.c:165:58: error: 'Button1Mask' undeclared (first use in this function)
+  165 |                 if(mouse_down && ( event.xmotion.state & Button1Mask ))
+      |                                                          ^~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:167:42: error: request for member 'xmotion' in something not a structure or union
+  167 |                     UG_TouchUpdate((event.xmotion.x - simCfg->screenMargin) / simCfg->screenMultiplier, (event.xmotion.y - simCfg->screenMargin) / simCfg->screenMultiplier, TOUCH_STATE_PRESSED);
+      |                                          ^
+../Lib/UGUI/ugui_sim_x11.c:167:111: error: request for member 'xmotion' in something not a structure or union
+  167 |                     UG_TouchUpdate((event.xmotion.x - simCfg->screenMargin) / simCfg->screenMultiplier, (event.xmotion.y - simCfg->screenMargin) / simCfg->screenMultiplier, TOUCH_STATE_PRESSED);
+      |                                                                                                               ^
+../Lib/UGUI/ugui_sim_x11.c:175:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  175 |         memcpy(ximage, handle->imgBuffer, BUFFER_SIZE);
+      |         ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c:16:1: note: include '<string.h>' or provide a declaration of 'memcpy'
+   15 | #include "ugui_sim.h"
+  +++ |+#include <string.h>
+   16 | 
+../Lib/UGUI/ugui_sim_x11.c:175:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+  175 |         memcpy(ximage, handle->imgBuffer, BUFFER_SIZE);
+      |         ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c:175:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Lib/UGUI/ugui_sim_x11.c:176:9: error: unknown type name 'XImage'
+  176 |         XImage *img = XCreateImage(handle->dis,
+      |         ^~~~~~
+../Lib/UGUI/ugui_sim_x11.c:176:23: warning: implicit declaration of function 'XCreateImage' [-Wimplicit-function-declaration]
+  176 |         XImage *img = XCreateImage(handle->dis,
+      |                       ^~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:179:36: error: 'ZPixmap' undeclared (first use in this function)
+  179 |                                    ZPixmap,
+      |                                    ^~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:186:9: warning: implicit declaration of function 'XPutImage' [-Wimplicit-function-declaration]
+  186 |         XPutImage(handle->dis,
+      |         ^~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:196:9: warning: implicit declaration of function 'XDestroyImage' [-Wimplicit-function-declaration]
+  196 |         XDestroyImage(img);
+      |         ^~~~~~~~~~~~~
+../Lib/UGUI/ugui_sim_x11.c:197:9: warning: implicit declaration of function 'XFlush'; did you mean 'fflush'? [-Wimplicit-function-declaration]
+  197 |         XFlush(handle->dis);
+      |         ^~~~~~
+      |         fflush
+make: *** [Lib/UGUI/subdir.mk:40: Lib/UGUI/ugui_sim_x11.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:40:53 **** Build of configuration Debug for project ST7789_demo_f103c8 ****
+make -j16 all 
+arm-none-eabi-size  ST7789_demo_f103c8.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 128132	    128	   2664	 130924	  1ff6c	ST7789_demo_f103c8.elf
+Finished building: default.size.stdout
+ 
+14:41:08 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/UGUI/ugui_sim_x11.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/UGUI/ugui_sim_x11.d" -MT"Lib/UGUI/ugui_sim_x11.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/UGUI/ugui_sim_x11.o"
+../Lib/UGUI/ugui_sim_x11.c:12:10: fatal error: execinfo.h: No such file or directory
+   12 | #include <execinfo.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make: *** [Lib/UGUI/subdir.mk:40: Lib/UGUI/ugui_sim_x11.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:41:09 **** Incremental Build of configuration Debug for project ST7789_demo_f103c8 ****
+make -j16 all 
+arm-none-eabi-size  ST7789_demo_f103c8.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 128132	    128	   2664	 130924	  1ff6c	ST7789_demo_f103c8.elf
+Finished building: default.size.stdout
+ 
+14:41:55 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/UGUI/ugui_sim_x11.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/UGUI/ugui_sim_x11.d" -MT"Lib/UGUI/ugui_sim_x11.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/UGUI/ugui_sim_x11.o"
+../Lib/UGUI/ugui_sim_x11.c:3:10: fatal error: X11/Xlib.h: No such file or directory
+    3 | #include <X11/Xlib.h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+make: *** [Lib/UGUI/subdir.mk:40: Lib/UGUI/ugui_sim_x11.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:41:56 **** Incremental Build of configuration Debug for project ST7789_demo_f103c8 ****
+make -j16 all 
+arm-none-eabi-size  ST7789_demo_f103c8.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 128132	    128	   2664	 130924	  1ff6c	ST7789_demo_f103c8.elf
+Finished building: default.size.stdout
+ 
+15:43:49 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/UGUI/ugui_sim_x11.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/UGUI/ugui_sim_x11.d" -MT"Lib/UGUI/ugui_sim_x11.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/UGUI/ugui_sim_x11.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36632	     24	   3296	  39952	   9c10	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+15:43:52 **** Incremental Build of configuration Debug for project ST7789_demo_f103c8 ****
+make -j16 all 
+arm-none-eabi-size  ST7789_demo_f103c8.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 128132	    128	   2664	 130924	  1ff6c	ST7789_demo_f103c8.elf
+Finished building: default.size.stdout
+ 
+08:28:25 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36632	     24	   3296	  39952	   9c10	Refonte.elf
+Finished building: default.size.stdout
+ 
+08:31:12 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36632	     24	   3296	  39952	   9c10	Refonte.elf
+Finished building: default.size.stdout
+ 
+08:33:29 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36632	     24	   3296	  39952	   9c10	Refonte.elf
+Finished building: default.size.stdout
+ 
+08:37:52 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36632	     24	   3296	  39952	   9c10	Refonte.elf
+Finished building: default.size.stdout
+ 
+08:40:45 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36680	     24	   3296	  40000	   9c40	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+08:45:42 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36680	     24	   3296	  40000	   9c40	Refonte.elf
+Finished building: default.size.stdout
+ 
+08:48:26 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36680	     24	   3296	  40000	   9c40	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+08:53:32 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36680	     24	   3296	  40000	   9c40	Refonte.elf
+Finished building: default.size.stdout
+ 
+08:54:40 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36680	     24	   3296	  40000	   9c40	Refonte.elf
+Finished building: default.size.stdout
+ 
+08:56:45 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36736	     24	   3296	  40056	   9c78	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+09:15:50 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36736	     24	   3296	  40056	   9c78	Refonte.elf
+Finished building: default.size.stdout
+ 
+09:19:57 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36736	     24	   3296	  40056	   9c78	Refonte.elf
+Finished building: default.size.stdout
+ 
+09:22:54 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36736	     24	   3296	  40056	   9c78	Refonte.elf
+Finished building: default.size.stdout
+ 
+09:25:31 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36816	     24	   3296	  40136	   9cc8	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+09:30:43 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36816	     24	   3296	  40136	   9cc8	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+09:34:26 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36816	     24	   3296	  40136	   9cc8	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+09:34:33 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36816	     24	   3296	  40136	   9cc8	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+09:35:06 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Lib/Src/communication.o: in function `parser':
+C:/Users/smore/Documents/YNOV/Projet_RNPC/Refonte_code/Refonte/Debug/../Lib/Src/communication.c:207: undefined reference to `calc_checksum_uart5'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:67: Refonte.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+09:35:23 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36880	     24	   3296	  40200	   9d08	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+09:35:27 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36880	     24	   3296	  40200	   9d08	Refonte.elf
+Finished building: default.size.stdout
+ 
+09:38:57 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36888	     24	   3296	  40208	   9d10	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+09:41:55 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36888	     24	   3296	  40208	   9d10	Refonte.elf
+Finished building: default.size.stdout
+ 
+09:42:29 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36896	     24	   3296	  40216	   9d18	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+09:42:35 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36896	     24	   3296	  40216	   9d18	Refonte.elf
+Finished building: default.size.stdout
+ 
+10:09:16 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36896	     24	   3296	  40216	   9d18	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+10:25:05 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36896	     24	   3296	  40216	   9d18	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+10:28:12 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36896	     24	   3304	  40224	   9d20	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:02:10 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36888	     24	   3304	  40216	   9d18	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:06:37 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36888	     24	   3304	  40216	   9d18	Refonte.elf
+Finished building: default.size.stdout
+ 
+12:09:52 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36912	     24	   3304	  40240	   9d30	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:09:55 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36912	     24	   3304	  40240	   9d30	Refonte.elf
+Finished building: default.size.stdout
+ 
+12:13:12 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36896	     24	   3304	  40224	   9d20	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:21:15 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36896	     24	   3304	  40224	   9d20	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:21:47 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36896	     24	   3304	  40224	   9d20	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:25:09 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36896	     24	   3304	  40224	   9d20	Refonte.elf
+Finished building: default.size.stdout
+ 
+12:26:35 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36896	     24	   3304	  40224	   9d20	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:27:42 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36968	     24	   3304	  40296	   9d68	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:32:02 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36968	     24	   3304	  40296	   9d68	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:37:29 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36960	     24	   3304	  40288	   9d60	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:37:33 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36960	     24	   3304	  40288	   9d60	Refonte.elf
+Finished building: default.size.stdout
+ 
+12:39:19 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36976	     24	   3304	  40304	   9d70	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:40:32 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36888	     24	   3304	  40216	   9d18	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:42:43 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36864	     24	   3304	  40192	   9d00	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:44:29 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36864	     24	   3304	  40192	   9d00	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+12:46:40 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-size  Refonte.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36864	     24	   3304	  40192	   9d00	Refonte.elf
+Finished building: default.size.stdout
+ 
+21:04:27 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36856	     24	   3304	  40184	   9cf8	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 

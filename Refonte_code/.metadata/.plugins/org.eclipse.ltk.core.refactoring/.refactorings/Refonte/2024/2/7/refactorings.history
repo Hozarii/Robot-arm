@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Refonte/Lib/Inc/Led_ring.h&apos; to &apos;led_ring.h&apos;" description="Rename resource &apos;Led_ring.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Lib/Inc/Led_ring.h" name="led_ring.h" stamp="1707902984779" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Refonte/Lib/Inc/lcd_.h&apos; to &apos;lcd.h&apos;" description="Rename resource &apos;lcd_.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Lib/Inc/lcd_.h" name="lcd.h" stamp="1708007611811" updateReferences="true"/>
+</session>

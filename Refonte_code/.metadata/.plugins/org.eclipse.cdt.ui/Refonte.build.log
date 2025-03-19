@@ -1,0 +1,17 @@
+21:04:27 **** Incremental Build of configuration Debug for project Refonte ****
+make -j16 all 
+arm-none-eabi-gcc "../Lib/Src/communication.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Lib/Src/communication.d" -MT"Lib/Src/communication.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Lib/Src/communication.o"
+arm-none-eabi-gcc -o "Refonte.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\smore\Documents\YNOV\Projet_RNPC\Refonte_code\Refonte\STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Refonte.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Refonte.elf
+ 
+arm-none-eabi-size  Refonte.elf 
+arm-none-eabi-objdump -h -S Refonte.elf  > "Refonte.list"
+   text	   data	    bss	    dec	    hex	filename
+  36856	     24	   3304	  40184	   9cf8	Refonte.elf
+Finished building: default.size.stdout
+ 
+Finished building: Refonte.list
+ 
+
+21:04:28 Build Finished. 0 errors, 0 warnings. (took 1s.200ms)
+
